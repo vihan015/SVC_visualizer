@@ -7,6 +7,14 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+import streamlit as st
+
+st.set_page_config(
+    page_title="SVM Visualizer",
+    page_icon="📈",
+    layout="wide"
+)
+
 sample_size = st.sidebar.slider("Sample Size", 200, 1000, 200, 50)
 data = st.sidebar.selectbox(
     "Sample Type",
