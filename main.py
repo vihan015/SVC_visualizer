@@ -67,8 +67,18 @@ elif data == "blob":
 
 X, x_test, y, y_test = train_test_split(X,y, test_size=0.2, random_state=42)
 
-kernel = st.sidebar.selectbox("Kernel", ['linear','rbf','poly','sigmoid'])
-C = st.sidebar.number_input("C",max_value=1000.0,min_value=0.01,step=0.5)
+kernel = st.sidebar.selectbox(
+    "Kernel", 
+    ['linear','rbf','poly','sigmoid']
+)
+
+C = st.sidebar.number_input(
+    "C",
+    min_value=0.01,
+    max_value=1000.0,
+    value=1.0,
+    step=0.5
+)
 
 model = SVC(
     kernel=kernel,
