@@ -97,8 +97,6 @@ model.fit(X,y)
 y_pred = model.predict(x_test)
 accuracy = accuracy_score(y_test, y_pred)
 
-st.metric("Training Accuracy", f"{accuracy:.3f}")
-
 fig1, ax = plt.subplots()
 x_min, x_max = X[:,0].min() - 1, X[:,0].max() + 1
 y_min, y_max = X[:,1].min() - 1, X[:,1].max() + 1
@@ -120,4 +118,8 @@ ax.scatter(
     marker = 'o'
 )
 
-st.pyplot(fig1, width = 500)
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    st.metric("Training Accuracy", f"{accuracy:.3f}")
+    st.pyplot(fig1)
